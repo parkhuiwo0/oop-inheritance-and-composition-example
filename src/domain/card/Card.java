@@ -25,10 +25,14 @@ public class Card {
         Money fee = Money.ZERO;
 
         for (Payment payment : payments) {
-            fee.plus(payment.getFee());
+            fee.plus(calculatePaymentFee(payment));
         }
 
         return fee;
+    }
+
+    private Money calculatePaymentFee(Payment payment) {
+        return payment.getFee();
     }
 
 }
