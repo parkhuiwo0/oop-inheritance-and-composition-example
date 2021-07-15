@@ -1,4 +1,4 @@
-package factory;
+package domain.factory;
 
 /**
  * Behavioral Decomposition Class
