@@ -1,25 +1,26 @@
 package domain.card;
 
+import domain.card.interfaces.CalculationPolicy;
 import domain.money.Money;
 import domain.payment.Payment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Card {
+public class Card {
 
+    private CalculationPolicy calculationPolicy;
     private List<Payment> payments = new ArrayList<>();
 
-    public Money calculateFee() {
-        Money fee = Money.ZERO;
-
-        for (Payment payment : payments) {
-            fee = fee.plus(calculatePaymentFee(payment));
-        }
-
-        return adjustAmountAfterCalculated(fee);
+    public Card(CalculationPolicy calculationPolicy) {
+        this.calculationPolicy = calculationPolicy;
     }
 
-    abstract protected Money calculatePaymentFee(Payment payment);
-    abstract protected Money adjustAmountAfterCalculated(Money fee);
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public Money calculateFee() {
+        return calculationPolicy.calculateFee(this);
+    }
 }
