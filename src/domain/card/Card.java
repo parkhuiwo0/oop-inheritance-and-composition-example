@@ -21,4 +21,5 @@ public abstract class Card {
     }
 
     abstract protected Money calculatePaymentFee(Payment payment);
+    abstract protected Money adjustAmountAfterCalculated(Money fee);
 }
