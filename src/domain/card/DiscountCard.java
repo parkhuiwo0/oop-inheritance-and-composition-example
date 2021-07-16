@@ -3,10 +3,10 @@ package domain.card;
 import domain.money.Money;
 import domain.payment.Payment;
 
-public class FrequencyDiscountCard extends Card {
+public class DiscountCard extends Card {
     private static final int discountAmount = 500;
 
-    public FrequencyDiscountCard() {
+    public DiscountCard() {
     }
 
     @Override
