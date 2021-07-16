@@ -3,36 +3,13 @@ package domain.card;
 import domain.money.Money;
 import domain.payment.Payment;
 
-import java.util.ArrayList;
-import java.util.List;
+public class NormalCard extends Card {
 
-public class NormalCard {
-    private List<Payment> payments = new ArrayList<>();
-
-    public NormalCard(List<Payment> payments) {
-        this.payments = payments;
+    public NormalCard() {
     }
 
-    public List<Payment> getPayments() {
-        return payments;
-    }
-
-    /**
-     * 결제 내역을 순회 하면서 금액을 더합니다.
-     * @return 결제 내역의 총 금액 합산
-     */
-    public Money calculateFee() {
-        Money fee = Money.ZERO;
-
-        for (Payment payment : payments) {
-            fee.plus(calculatePaymentFee(payment));
-        }
-
-        return fee;
-    }
-
-    private Money calculatePaymentFee(Payment payment) {
+    @Override
+    protected Money calculatePaymentFee(Payment payment) {
         return payment.getFee();
     }
-
 }
