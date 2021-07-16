@@ -1,4 +1,4 @@
-package interfaces;
+package domain.card.interfaces;
 
 import domain.card.Card;
 import domain.money.Money;
