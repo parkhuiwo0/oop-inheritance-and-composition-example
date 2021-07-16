@@ -13,4 +13,9 @@ public class DiscountCard extends Card {
     protected Money calculatePaymentFee(Payment payment) {
         return payment.getFee().minus(Money.won(discountAmount));
     }
+
+    @Override
+    protected Money adjustAmountAfterCalculated(Money fee) {
+        return fee;
+    }
 }

@@ -12,4 +12,9 @@ public class NormalCard extends Card {
     protected Money calculatePaymentFee(Payment payment) {
         return payment.getFee();
     }
+
+    @Override
+    protected Money adjustAmountAfterCalculated(Money fee) {
+        return fee;
+    }
 }
