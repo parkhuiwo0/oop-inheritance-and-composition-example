@@ -17,7 +17,7 @@ public abstract class Card {
             fee = fee.plus(calculatePaymentFee(payment));
         }
 
-        return fee;
+        return adjustAmountAfterCalculated(fee);
     }
 
     abstract protected Money calculatePaymentFee(Payment payment);
